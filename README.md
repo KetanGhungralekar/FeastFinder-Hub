@@ -53,13 +53,22 @@ We extend our gratitude to our professors and mentors for their guidance through
 ## Authors
 
 - **Ketan Ghungralekar**
-- **Pratham Chawdhry**
-- **Soma Datta**
-- **Abhinav Kumar**
 
 ## Installation
 
 ### Clone the Repository
 
 ```bash
-git clone <repository_url>
+git clone "https://github.com/KetanGhungralekar/FeastFinder-Hub.git"
+```
+## For Frontend
+```bash
+cd /frontend
+npm i
+npm start
+```
+
+## For Backend
+```bash
+mvn clean install
+java -jar target/Online-Food-Ordering-0.0.1-SNAPSHOT.jar
