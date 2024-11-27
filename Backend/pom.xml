@@ -17,7 +17,6 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -91,6 +90,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+				<!-- <mainClass>C:\Users\ketan\OneDrive - iiit-b\Desktop\Sem 5\FeastFinder Hub\Backend\src\main\java\com\Ketan\OnlineFoodOrderingApplication.java</mainClass> Use your package here -->
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>

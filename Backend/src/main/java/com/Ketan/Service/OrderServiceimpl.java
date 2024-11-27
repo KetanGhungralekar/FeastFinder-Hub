@@ -42,7 +42,7 @@ public class OrderServiceimpl implements OrderService{
     private CartService cartService;
 
     @Override
-    public Order CreateOrderItem(CreateOrderreq order, User user) {
+    public Order CreateOrderItem(CreateOrderreq order, User user) throws UnsupportedOperationException {
         Address address = order.getDeliveryAddress();
         Address savedAddress = addressRepo.save(address);
         Order newOrder = new Order();
@@ -75,7 +75,8 @@ public class OrderServiceimpl implements OrderService{
             return savedOrder;
         }
         catch(Exception e){
-            throw new UnsupportedOperationException("Unimplemented method 'CreateOrderItem'");
+            e.printStackTrace();
+            throw new UnsupportedOperationException("Error fetching restaurant");
         }
     }
 

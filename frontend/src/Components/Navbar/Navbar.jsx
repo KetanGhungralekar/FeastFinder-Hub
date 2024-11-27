@@ -10,11 +10,9 @@ import { useSelector } from "react-redux";
 export const Navbar = () => {
     const { auth, cart } = useSelector((store) => store);
     const navigate = useNavigate();
-
     const handleAvatar = () => {
         navigate("/my-profile");
     };
-
     return (
         <Box
             className="px-5 sticky top-0 z-50 py-[0.8rem] bg-[#111827] lg:px-20 flex justify-between"
@@ -31,7 +29,7 @@ export const Navbar = () => {
                         fontFamily: "'Roboto', sans-serif",
                     }}
                 >
-                    Zosh Food
+                    FeastFinder Hub
                 </li>
             </div>
 

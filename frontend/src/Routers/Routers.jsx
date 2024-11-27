@@ -1,20 +1,13 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Home from "./tabs/home";
-import Profile from "./tabs/profile";
-import Characters from "./tabs/characters";
-import Lessons from "./tabs/lessons";
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { AdminRoute } from './AdminRoute';
+import { CustomerRouter } from './CustomerRouter';
 
-const AppRoutes = () => {
+export const Routers = () => {
     return (
         <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/characters" element={<Characters />} />
-            <Route path="/lessons" element={<Lessons />} />
-            <Route path="/" element={<Home />} /> {/* Default route */}
+            <Route path="/admin/restaurants/*" element={<AdminRoute />} />
+            <Route path="/*" element={<CustomerRouter />} />
         </Routes>
-    );
-};
-
-export default AppRoutes;
+    )
+}

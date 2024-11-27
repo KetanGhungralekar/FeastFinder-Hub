@@ -35,7 +35,7 @@ public class RestServiceImp implements RestaurantService{
         Address address = addressRepo.save(req.getAddress());
         Restaurant restaurant = new Restaurant();
         System.out.println("id" + restaurant.getId());
-        addressRepo.save(address);
+        // addressRepo.save(address);
         restaurant.setAddress(address);
         restaurant.setContactInformation(req.getContactInformation());
         restaurant.setCuisineType(req.getCuisineType());

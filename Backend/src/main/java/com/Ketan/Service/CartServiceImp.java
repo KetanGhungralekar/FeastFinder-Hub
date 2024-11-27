@@ -26,8 +26,9 @@ public class CartServiceImp implements CartService{
     private FoodService foodService;
     @Override
     public CartItems addCartItems(AddCartitemreq req, String jwt) throws Exception {
-        User user = userService.FindUserByJwt(jwt);
-       try {
+        try {
+            User user = userService.FindUserByJwt(jwt);
+            
             Cart cart = cartRepository.findByCustomerId(user.getId());
             Food food = foodService.getFood(req.getFoodid());
             for (CartItems cartItems : cart.getCartItems()) {
@@ -106,7 +107,7 @@ public class CartServiceImp implements CartService{
     public Cart getCartByUser(Long userid) throws Exception {
         Optional<Cart> cart = Optional.ofNullable(cartRepository.findByCustomerId(userid));
         if(cart.isEmpty()){
-            throw new Exception("Cart not found");
+            throw new Exception("Error fetching cart");
         }
         Cart cart1 = cart.get();
         cart1.setTotalPrice(getCartTotal(cart1));

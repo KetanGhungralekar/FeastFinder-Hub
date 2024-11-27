@@ -11,8 +11,8 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import React, { useState } from "react";
 import { Category } from "@mui/icons-material";
 import { categoriseIngredients } from "../utills/categoriseIngredients";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../State/Cart/Action";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, updateCartItem } from "../State/Cart/Action";
 const ingredients = [
   {
     Category: "Nuts and Seeds",
@@ -31,6 +31,7 @@ const ingredients = [
 export const MenuCard = ({item}) => {
   const dispatch = useDispatch()
   const [selectedIngredients, setSelectedIngredients] = useState([]);
+  const { cart, auth } = useSelector((store) => store);
   const HandleCheckBoxChange = (item) => {
     //add this to selected ingredients
     if (selectedIngredients.includes(item)) {
@@ -52,6 +53,29 @@ export const MenuCard = ({item}) => {
     console.log("reqData", reqData);
     dispatch(addToCart(reqData));
   }
+  // const handleAddtoCart = (e) => {
+  //   e.preventDefault();
+  //   const token = localStorage.getItem("token");
+
+  //   const existingCartItem = cart.cartItems.find((cartItem) => cartItem.foodid === item.id);
+  //   console.log("existingCartItem", existingCartItem);
+
+  //   const reqData = {
+  //     token,
+  //     cartItem: {
+  //       cartitemId: item.id,
+  //       quantity: existingCartItem ? existingCartItem.quantity + 1 : 1,
+  //     },
+  //   };
+
+  //   if (existingCartItem) {
+  //     // Update the existing cart item
+  //     dispatch(updateCartItem(reqData));
+  //   } else {
+  //     // Add a new item to the cart
+  //     dispatch(addToCart(reqData));
+  //   }
+  // };
   return (
     <div>
       <Accordion>
